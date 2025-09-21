@@ -36,6 +36,8 @@ public class Light extends Component.WithState {
         private String uniqueId;
         private String onCommandType;
         private String icon;
+        private Availability availability;
+
 
         public Builder() {
         }
@@ -95,6 +97,12 @@ public class Light extends Component.WithState {
             return this;
         }
 
+        public Builder withAvailability(Availability availability) {
+            this.availability = availability;
+            return this;
+        }
+
+
         public Light build() {
             Light dimmer = new Light();
             dimmer.setName(name);
@@ -108,6 +116,7 @@ public class Light extends Component.WithState {
             dimmer.brightnessCommandTopic = this.brightnessCommandTopic;
             dimmer.onCommandType = this.onCommandType;
             dimmer.icon = this.icon;
+            dimmer.availability = this.availability;
             return dimmer;
         }
     }

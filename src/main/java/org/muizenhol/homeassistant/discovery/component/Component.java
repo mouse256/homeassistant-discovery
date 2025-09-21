@@ -18,6 +18,9 @@ public abstract class Component {
     @JsonProperty("icon")
     String icon;
 
+    @JsonProperty("availability")
+    Availability availability;
+
     Component(Platform platform) {
         this.platform = platform;
     }
@@ -40,6 +43,14 @@ public abstract class Component {
 
     public Platform getPlatform() {
         return platform;
+    }
+
+    public Availability getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(Availability availability) {
+        this.availability = availability;
     }
 
     public static abstract class WithState extends Component {

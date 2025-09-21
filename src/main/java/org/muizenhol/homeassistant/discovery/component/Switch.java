@@ -19,6 +19,7 @@ public class Switch extends Component.WithState {
         private String name;
         private String uniqueId;
         private String icon;
+        private Availability availability;
 
         public Builder() {
         }
@@ -58,6 +59,11 @@ public class Switch extends Component.WithState {
             return this;
         }
 
+        public Switch.Builder withAvailability(Availability availability) {
+            this.availability = availability;
+            return this;
+        }
+
         public Switch build() {
             Switch aSwitch = new Switch();
             aSwitch.setName(name);
@@ -67,6 +73,7 @@ public class Switch extends Component.WithState {
             aSwitch.stateTopic = this.stateTopic;
             aSwitch.commandTopic = this.commandTopic;
             aSwitch.icon = this.icon;
+            aSwitch.availability = this.availability;
             return aSwitch;
         }
     }
