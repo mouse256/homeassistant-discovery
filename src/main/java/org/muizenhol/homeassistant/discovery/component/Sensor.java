@@ -22,6 +22,9 @@ public class Sensor extends Component {
     @JsonProperty("value_template")
     private String valueTemplate;
 
+    @JsonProperty("entity_category")
+    private String entityCategory;
+
     public Sensor() {
         super(Platform.SENSOR);
     }
@@ -54,6 +57,7 @@ public class Sensor extends Component {
         private String valueTemplate;
         private String name;
         private String uniqueId;
+        private String entityCategory;
 
         public Builder() {
         }
@@ -93,6 +97,11 @@ public class Sensor extends Component {
             return this;
         }
 
+        public Builder withEntityCategory(EntityCategory entityCategory) {
+            this.entityCategory = entityCategory.name().toLowerCase();
+            return this;
+        }
+
 
         public Sensor build() {
             Sensor sensor = new Sensor();
@@ -103,7 +112,12 @@ public class Sensor extends Component {
             sensor.stateClass = this.stateClass;
             sensor.deviceClass = this.deviceClass;
             sensor.unitOfMeasurement = this.unitOfMeasurement;
+            sensor.entityCategory = this.entityCategory;
             return sensor;
+        }
+
+        public enum EntityCategory {
+            DIAGNOSTIC;
         }
     }
 
