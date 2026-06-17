@@ -6,7 +6,8 @@ public enum Platform {
     SENSOR,
     LIGHT,
     CLIMATE,
-    SWITCH;
+    SWITCH,
+    COVER;
 
     @JsonValue
     public String getName() {
