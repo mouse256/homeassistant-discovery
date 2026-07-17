@@ -19,6 +19,9 @@ public class Sensor extends Component {
     @JsonProperty("suggested_display_precision")
     private int suggestedDisplayPrecision;
 
+    @JsonProperty("state_topic")
+    private String stateTopic;
+
     @JsonProperty("value_template")
     private String valueTemplate;
 
@@ -45,6 +48,10 @@ public class Sensor extends Component {
         return suggestedDisplayPrecision;
     }
 
+    public String getStateTopic() {
+        return stateTopic;
+    }
+
     public String getValueTemplate() {
         return valueTemplate;
     }
@@ -54,6 +61,7 @@ public class Sensor extends Component {
         private StateClass stateClass;
         private String unitOfMeasurement;
         private int suggestedDisplayPrecision;
+        private String stateTopic;
         private String valueTemplate;
         private String name;
         private String uniqueId;
@@ -79,6 +87,11 @@ public class Sensor extends Component {
 
         public Builder withSuggestedDisplayPrecision(int suggestedDisplayPrecision) {
             this.suggestedDisplayPrecision = suggestedDisplayPrecision;
+            return this;
+        }
+
+        public Builder withStateTopic(String stateTopic) {
+            this.stateTopic = stateTopic;
             return this;
         }
 
@@ -108,6 +121,7 @@ public class Sensor extends Component {
             sensor.setName(name);
             sensor.setUniqueId(uniqueId);
             sensor.suggestedDisplayPrecision = this.suggestedDisplayPrecision;
+            sensor.stateTopic = this.stateTopic;
             sensor.valueTemplate = this.valueTemplate;
             sensor.stateClass = this.stateClass;
             sensor.deviceClass = this.deviceClass;
