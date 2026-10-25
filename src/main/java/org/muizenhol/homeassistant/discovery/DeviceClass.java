@@ -10,7 +10,9 @@ public enum DeviceClass {
     CURRENT,
     FREQUENCY,
     ENERGY,
-    VOLTAGE;
+    VOLTAGE,
+    TIMESTAMP,
+    BATTERY;
 
     @JsonValue
     public String getName() {

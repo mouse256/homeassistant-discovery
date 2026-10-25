@@ -53,6 +53,7 @@ public class BinarySensor extends Component {
      */
     public enum DeviceClass {
         BATTERY_CHARGING,
+        PLUG,
         POWER,
         PROBLEM,
         RUNNING;

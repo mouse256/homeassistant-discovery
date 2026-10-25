@@ -17,7 +17,7 @@ public class Sensor extends Component {
     private String unitOfMeasurement;
 
     @JsonProperty("suggested_display_precision")
-    private int suggestedDisplayPrecision;
+    private Integer suggestedDisplayPrecision;
 
     @JsonProperty("state_topic")
     private String stateTopic;
@@ -44,7 +44,7 @@ public class Sensor extends Component {
         return unitOfMeasurement;
     }
 
-    public int getSuggestedDisplayPrecision() {
+    public Integer getSuggestedDisplayPrecision() {
         return suggestedDisplayPrecision;
     }
 
@@ -60,7 +60,7 @@ public class Sensor extends Component {
         private DeviceClass deviceClass;
         private StateClass stateClass;
         private String unitOfMeasurement;
-        private int suggestedDisplayPrecision;
+        private Integer suggestedDisplayPrecision;
         private String stateTopic;
         private String valueTemplate;
         private String name;
