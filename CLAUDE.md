@@ -25,8 +25,8 @@ The whole API is a tree of Jackson-annotated value types that serialize to a sin
 
 - `Discovery` (record) is the root: a `device`, an `origin`, a `state_topic`, and a `Map<String, Component>` of named `components`. The map keys become the component object keys in the JSON.
 - `Component` (abstract) is the base for every entity. It holds the shared fields (`name`, `unique_id`, `platform`, `icon`, `availability`). `Component.WithState` adds command/state topics and on/off payloads for controllable entities.
-- Concrete components live in `component/`: `Sensor`, `Light`, `Switch`, `Climate`. `Light`/`Switch` extend `WithState`; `Sensor` extends `Component` directly.
-- Each component fixes its `Platform` by passing it to `super(...)` in its constructor (e.g. `Sensor` → `Platform.SENSOR`). `Platform` is one of `SENSOR, LIGHT, CLIMATE, SWITCH`.
+- Concrete components live in `component/`: `Sensor`, `BinarySensor`, `Light`, `Switch`, `Climate`, `Cover`, `Select`. `Light`/`Switch`/`Cover`/`Select` extend `WithState`; `Sensor`/`BinarySensor` extend `Component` directly. `BinarySensor` has its own nested `DeviceClass` enum (HA's binary sensor device classes differ from the sensor ones).
+- Each component fixes its `Platform` by passing it to `super(...)` in its constructor (e.g. `Sensor` → `Platform.SENSOR`). `Platform` is one of `SENSOR, LIGHT, CLIMATE, SWITCH, COVER, SELECT, BINARY_SENSOR`.
 - `DeviceClass` and `StateClass` are enums constraining `Sensor` fields, matching Home Assistant's sensor entity model.
 
 ### Key conventions

@@ -7,7 +7,9 @@ public enum Platform {
     LIGHT,
     CLIMATE,
     SWITCH,
-    COVER;
+    COVER,
+    SELECT,
+    BINARY_SENSOR;
 
     @JsonValue
     public String getName() {
